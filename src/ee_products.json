@@ -1,0 +1,119 @@
+[
+  {
+    "kind": "essentials",
+    "name": "Cadru pat KONGSBERG 180x200 bej",
+    "category": "Paturi",
+    "store": "JYSK",
+    "price_minor": 169900,
+    "currency": "RON",
+    "primary_image_url": "https://cdn2.jysk.com/getimage/wd3.large/255907"
+  },
+  {
+    "kind": "essentials",
+    "name": "MALM Comod\u0103 6 sertare - furnir stejar alb 160x78 cm",
+    "category": "Comode",
+    "store": "IKEA",
+    "price_minor": 84900,
+    "currency": "RON",
+    "primary_image_url": "https://www.ikea.com/ro/ro/images/products/malm-comoda-6-sertare-furnir-stejar-alb__0484883_pe621346_s5.jpg"
+  },
+  {
+    "kind": "essentials",
+    "name": "Fotoliu HUNDESTED reiat verde/stejar natur",
+    "category": "Fotolii",
+    "store": "JYSK",
+    "price_minor": 74900,
+    "currency": "RON",
+    "primary_image_url": "https://cdn4.jysk.com/getimage/wd3.large/268065"
+  },
+  {
+    "kind": "essentials",
+    "name": "BILLY Bibliotec\u0103 - alb 40x28x202 cm",
+    "category": "Biblioteci",
+    "store": "IKEA",
+    "price_minor": 17900,
+    "currency": "RON",
+    "primary_image_url": "https://www.ikea.com/ro/ro/images/products/billy-biblioteca-alb__0644260_pe702536_s5.jpg"
+  },
+  {
+    "kind": "decoration",
+    "name": "GEOMETRIC Tablou canvas",
+    "category": "Decora\u021biuni perete",
+    "store": "Mobexpert",
+    "price_minor": 45300,
+    "currency": "RON",
+    "primary_image_url": "https://cdn.shopify.com/s/files/1/0021/3041/1580/products/1_86cdaf5e-9eef-411a-8b7f-37ee22b8b317.jpg?v=1663333526"
+  },
+  {
+    "kind": "decoration",
+    "name": "LINDBYN Oglind\u0103 - auriu 60x170 cm",
+    "category": "Oglinzi",
+    "store": "IKEA",
+    "price_minor": 44900,
+    "currency": "RON",
+    "primary_image_url": "https://www.ikea.com/ro/ro/images/products/lindbyn-oglinda-auriu__1374982_pe960160_s5.jpg"
+  },
+  {
+    "kind": "decoration",
+    "name": "Plant\u0103 artificial\u0103 OLIVE TREE 153 cm Verde",
+    "category": "Plante",
+    "store": "Beliani",
+    "price_minor": 36900,
+    "currency": "RON",
+    "primary_image_url": "https://img.pictureserver.net/pic_storage/pic/64/de/undef_src_sa_picid_901149_x_376_type_whitesh_image.jpg?ver=15"
+  },
+  {
+    "kind": "decoration",
+    "name": "\u00c4RENDE Covor, fir lung - alb murdar 160x230 cm",
+    "category": "Covoare",
+    "store": "IKEA",
+    "price_minor": 24900,
+    "currency": "RON",
+    "primary_image_url": "https://www.ikea.com/ro/ro/images/products/aerende-covor-fir-lung-alb-murdar__1416048_pe975419_s5.jpg"
+  },
+  {
+    "kind": "decoration",
+    "name": "MUDDERVERK Lustr\u0103 - alam\u0103/opalin sticl\u0103",
+    "category": "Lustre",
+    "store": "IKEA",
+    "price_minor": 19990,
+    "currency": "RON",
+    "primary_image_url": "https://www.ikea.com/ro/ro/images/products/mudderverk-lustra-alama-opalin-sticla__1353360_pe952221_s5.jpg"
+  },
+  {
+    "kind": "decoration",
+    "name": "SOLKLINT Veioz\u0103 - alam\u0103/sticl\u0103 transparent\u0103 gri 28 cm",
+    "category": "Veioze",
+    "store": "IKEA",
+    "price_minor": 9990,
+    "currency": "RON",
+    "primary_image_url": "https://www.ikea.com/ro/ro/images/products/solklint-veioza-alama-sticla-transparenta-gri__0842257_pe781832_s5.jpg"
+  },
+  {
+    "kind": "decoration",
+    "name": "Pern\u0103 LYNG 40x60 bej/nisipiu",
+    "category": "Perne",
+    "store": "JYSK",
+    "price_minor": 6500,
+    "currency": "RON",
+    "primary_image_url": "https://cdn3.jysk.com/getimage/wd3.large/247158"
+  },
+  {
+    "kind": "decoration",
+    "name": "GREEN Plant\u0103 artificial\u0103 \u00een ghiveci",
+    "category": "Plante",
+    "store": "Mobexpert",
+    "price_minor": 1200,
+    "currency": "RON",
+    "primary_image_url": "https://cdn.shopify.com/s/files/1/0021/3041/1580/products/Mobexpert-planta-ghiveci-Green-H18-cm-verde-01.jpg?v=1538392300"
+  },
+  {
+    "kind": "decoration",
+    "name": "Fa\u021b\u0103 de pern\u0103 ERTEVIKKE 50x50 bej",
+    "category": "Perne",
+    "store": "JYSK",
+    "price_minor": 1000,
+    "currency": "RON",
+    "primary_image_url": "https://cdn4.jysk.com/getimage/wd3.large/157957"
+  }
+]
