@@ -9,7 +9,7 @@ R = pathlib.Path(__file__).parent
 OUT = R / "out"; TMP = R / "_rb1080"; TMP.mkdir(exist_ok=True)
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 W, H, FPS = 1080, 1920, 30
-DUR = {"s1": 2.6, "s2": 5.0, "s3": 5.7, "s4": 4.6}
+DUR = {"s1": 2.6, "s2": 5.0, "s3": 4.5, "s4": 4.6}
 SRC_REEL = OUT / "ee_reel_vo_9x16.mp4"   # has the timed VO+music
 
 

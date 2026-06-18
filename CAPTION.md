@@ -3,7 +3,7 @@
 ## Caption — recommended (Instagram / Facebook)
 > Camera ta, reimaginată în câteva minute. ✨
 >
-> Încarci o poză, alegi un stil — iar Vyka îți arată cum ar putea arăta camera ta, cu mobilă și decor **reale**, din magazine din România: IKEA, JYSK, Mobexpert, Beliani. 🛋️
+> Încarci o poză, alegi un stil — iar Vyka îți arată cum ar putea arăta camera ta, cu mobilă și decor **reale**, din magazine disponibile în România. 🛋️
 >
 > Fără designer, fără așteptări de săptămâni. Și fiecare piesă din imagine se poate cumpăra.
 >

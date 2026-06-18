@@ -105,13 +105,12 @@ def shoppable(out):
         except Exception:
             th = Image.new("RGB", (cw, cw), B.CREAM_100)
         card.paste(th, (x, chip_top))
-        ty = chip_top + cw + 12
-        B.store_badge(d, (x, ty), p["store"])
-        d.text((x, ty + 40), lei(p["price_minor"]), font=B.font("bold", 22), fill=B.ACCENT)
+        # no store name on marketing assets — price only
+        d.text((x, chip_top + cw + 14), lei(p["price_minor"]), font=B.font("bold", 24), fill=B.ACCENT)
     fy = H - 96
     d.line([(44, fy), (W - 44, fy)], fill=B.HAIRLINE, width=1)
-    d.text((44, fy + 20), f"{len(prods)} produse · {total:,.0f}".replace(",", ".") + " lei · 4 magazine",
-           font=B.font("bold", 26), fill=B.HEADING)
+    d.text((44, fy + 20), f"{len(prods)} produse · {total:,.0f}".replace(",", ".") + " lei · din magazine din România",
+           font=B.font("bold", 24), fill=B.HEADING)
     cta = "vyka.ro"
     d.text((W - 44 - d.textlength(cta, font=B.font("sans", 27)), fy + 22), cta, font=B.font("sans", 27), fill=B.ACCENT)
     card.save(OUT / out, quality=92)

@@ -45,14 +45,13 @@ for i, p in enumerate(feat):
     except Exception:
         th = Image.new("RGB", (cw, cw), B.CREAM_100)
     card.paste(th, (x, chip_top))
-    ty = chip_top + cw + 14
-    B.store_badge(d, (x, ty), p["store"], size=18)
-    d.text((x, ty + 42), lei(p["price_minor"]), font=B.font("bold", 24), fill=B.ACCENT)
-fy = chip_top + cw + 14 + 88
+    # no store name on marketing assets — price only
+    d.text((x, chip_top + cw + 16), lei(p["price_minor"]), font=B.font("bold", 26), fill=B.ACCENT)
+fy = chip_top + cw + 16 + 64
 d.line([(54, fy), (W - 54, fy)], fill=B.HAIRLINE, width=1)
-d.text((54, fy + 24), f"{len(prods)} produse · {total:,.0f}".replace(",", ".") + " lei · 4 magazine",
+d.text((54, fy + 24), f"{len(prods)} produse · {total:,.0f}".replace(",", ".") + " lei",
        font=B.font("bold", 30), fill=B.HEADING)
-d.text((54, fy + 66), "IKEA · JYSK · Mobexpert · Beliani", font=B.font("sans", 26), fill=B.TEXT_MUTED)
+d.text((54, fy + 66), "din magazine disponibile în România", font=B.font("sans", 26), fill=B.TEXT_MUTED)
 cta = "vyka.ro"
 d.text((W - 54 - d.textlength(cta, font=B.font("sans", 30)), fy + 30), cta, font=B.font("sans", 30), fill=B.ACCENT)
 card.save(OUT / "ee_shop_9x16.png", quality=92)
