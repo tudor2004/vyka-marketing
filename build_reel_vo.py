@@ -11,7 +11,7 @@ OUT = R / "out"; TMP = R / "_rb"; TMP.mkdir(exist_ok=True)
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 W, H, FPS = 720, 1280, 30
 # segment durations tuned so each VO line fits its beat
-DUR = {"s1": 2.6, "s2": 5.0, "s3": 6.8, "s4": 4.9}
+DUR = {"s1": 2.6, "s2": 5.0, "s3": 5.7, "s4": 4.6}
 TOTAL = sum(DUR.values())  # 17.0
 # absolute VO start offsets (s) + line files
 VO = [("_vo/l1.mp3", 0.4),
