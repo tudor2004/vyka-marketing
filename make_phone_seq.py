@@ -99,7 +99,7 @@ def save(img):
 ph_step1 = phone(screen("vyka_step1_filled.png"))
 ph_step2 = phone(screen("vyka_step2_style.png"))
 ph_step3 = phone(screen("vyka_step3_palette.png"))
-ph_result = phone(result_screen())
+ph_result = phone(screen("vyka_result_clean.png"))
 before_full = cover(Image.open(R / "src2/before.jpg").convert("RGB"), W, H)
 
 # A) snap the old room
