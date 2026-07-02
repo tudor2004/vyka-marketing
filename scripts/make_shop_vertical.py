@@ -5,10 +5,10 @@ import httpx
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"
-AFTER = R / "src/ee_after.png"
-prods = json.loads((R / "src/ee_products.json").read_text())
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True)
+AFTER = R / "src/ee0fa358/after.png"
+prods = json.loads((R / "src/ee0fa358/products.json").read_text())
 want = ["Cadru pat KONGSBERG", "MALM Comodă", "Fotoliu HUNDESTED", "LINDBYN Oglindă"]
 feat = [next(p for p in prods if p["name"].startswith(w)) for w in want]
 total = sum(p["price_minor"] for p in prods) / 100

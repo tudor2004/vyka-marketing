@@ -4,7 +4,7 @@ Every marketing image/video imports from here so styling never drifts."""
 import pathlib
 from PIL import ImageFont
 
-F = pathlib.Path(__file__).parent / "fonts"
+F = pathlib.Path(__file__).resolve().parent.parent / "fonts"
 SERIF = str(F / "Fraunces-300.ttf")
 SANS = str(F / "Inter-500.ttf")
 SANS_B = str(F / "Inter-600.ttf")

@@ -1,4 +1,21 @@
+# fonts — refetch from Google Fonts (Fraunces 300 + Inter 500/600)
 fonts/
 fonts.css
+
+# python
 __pycache__/
 *.pyc
+
+# ElevenLabs voiceover source mp3s — regenerated per build (see docs/REEL.md)
+_vo/
+
+# ffmpeg scratch / per-build temp dirs (auto-created, never committed)
+_reelbuild/
+_rb/
+_rb1080/
+_a3b/
+_cb/
+_v3b/
+_outro/
+_phoneseq/
+_gcb/

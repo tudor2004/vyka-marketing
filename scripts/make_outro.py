@@ -5,8 +5,8 @@ import imageio_ffmpeg
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"; TMP = R / "_outro";
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True); TMP = R / "_outro";
 if TMP.exists(): shutil.rmtree(TMP)
 TMP.mkdir()
 FF = imageio_ffmpeg.get_ffmpeg_exe()
@@ -55,7 +55,7 @@ for f in range(N):
                tt, font=tf, fill=tuple(round(B.BG[i] + (B.BODY[i] - B.BG[i]) * ta) for i in range(3)))
     im.save(TMP / f"f{f:03d}.png")
 
-final = OUT / "a3_outro.mp4"
+final = WORK / "a3_outro.mp4"
 subprocess.run([FF, "-y", "-loglevel", "error", "-framerate", str(FPS),
                 "-i", str(TMP / "f%03d.png"),
                 "-vf", "format=yuv420p", "-r", str(FPS), "-c:v", "libx264",

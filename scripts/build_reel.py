@@ -7,8 +7,8 @@ import imageio_ffmpeg
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True)
 TMP = R / "_reelbuild"
 TMP.mkdir(exist_ok=True)
 FF = imageio_ffmpeg.get_ffmpeg_exe()
@@ -24,7 +24,7 @@ def cover(im, w, h):
 
 # 1) Before title card (720x1280) with hook
 def before_card():
-    card = cover(Image.open(R / "src/ee_before.jpg").convert("RGB"), W, H)
+    card = cover(Image.open(R / "src/ee0fa358/before.jpg").convert("RGB"), W, H)
     scrim = Image.new("L", (1, H), 0)
     for y in range(H):
         t = max(0.0, (y - H * 0.5) / (H * 0.5))
@@ -99,7 +99,7 @@ def main():
     tb = before_card()
     segs = [
         ("s1", lambda o: img_seg(tb, 2.5, o)),
-        ("s2", lambda o: vid_seg(OUT / "ee_veo_9x16.mp4", 5.0, o)),
+        ("s2", lambda o: vid_seg(WORK / "ee_veo_9x16.mp4", 5.0, o)),
         ("s3", lambda o: img_seg(OUT / "ee_shop_9x16.png", 4.5, o)),
         ("s4", lambda o: img_seg(OUT / "ee_hero_9x16.png", 4.0, o)),
     ]

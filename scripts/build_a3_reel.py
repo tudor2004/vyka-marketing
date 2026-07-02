@@ -6,21 +6,21 @@ import numpy as np
 import imageio_ffmpeg
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"; TMP = R / "_a3b"; TMP.mkdir(exist_ok=True)
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True); TMP = R / "_a3b"; TMP.mkdir(exist_ok=True)
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 W, H, FPS = 1080, 1920, 30
 
 # (kind, source, duration)
 MONT = 1.6
-SEGS = [("img", OUT / "a3_hook.png", 3.0),
-        ("vid", OUT / "a3_veo_9x16.mp4", 5.0),
-        ("img", OUT / "a3_p1.png", MONT), ("img", OUT / "a3_p2.png", MONT),
-        ("img", OUT / "a3_p3.png", MONT), ("img", OUT / "a3_p4.png", MONT),
-        ("img", OUT / "a3_p5.png", MONT), ("img", OUT / "a3_p6.png", MONT),
+SEGS = [("img", WORK / "a3_hook.png", 3.0),
+        ("vid", WORK / "a3_veo_9x16.mp4", 5.0),
+        ("img", WORK / "a3_p1.png", MONT), ("img", WORK / "a3_p2.png", MONT),
+        ("img", WORK / "a3_p3.png", MONT), ("img", WORK / "a3_p4.png", MONT),
+        ("img", WORK / "a3_p5.png", MONT), ("img", WORK / "a3_p6.png", MONT),
         ("img", OUT / "a3_shop_9x16.png", 4.0),
-        ("img", OUT / "a3_cta.png", 2.8),
-        ("vid", OUT / "a3_outro.mp4", 3.0)]
+        ("img", WORK / "a3_cta.png", 2.8),
+        ("vid", WORK / "a3_outro.mp4", 3.0)]
 TOTAL = sum(s[2] for s in SEGS)  # 27.4
 
 # VO line -> absolute start offset

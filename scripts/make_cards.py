@@ -5,10 +5,10 @@ import httpx
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"
-BEFORE = R / "src/ee_before.jpg"
-AFTER = R / "src/ee_after.png"
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True)
+BEFORE = R / "src/ee0fa358/before.jpg"
+AFTER = R / "src/ee0fa358/after.png"
 WHITE = B.WHITE
 
 
@@ -83,7 +83,7 @@ def hero(W, H, hook_lines, cta, out):
 
 
 def shoppable(out):
-    prods = json.loads((R / "src/ee_products.json").read_text())
+    prods = json.loads((R / "src/ee0fa358/products.json").read_text())
     want = ["Cadru pat KONGSBERG", "MALM Comodă", "Fotoliu HUNDESTED", "LINDBYN Oglindă"]
     feat = [next(p for p in prods if p["name"].startswith(w)) for w in want]
     total = sum(p["price_minor"] for p in prods) / 100

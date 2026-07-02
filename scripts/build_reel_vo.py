@@ -6,8 +6,8 @@ import imageio_ffmpeg
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"; TMP = R / "_rb"; TMP.mkdir(exist_ok=True)
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True); TMP = R / "_rb"; TMP.mkdir(exist_ok=True)
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 W, H, FPS = 720, 1280, 30
 # segment durations tuned so each VO line fits its beat
@@ -28,7 +28,7 @@ def cover(im, w, h):
 
 
 def before_card():
-    card = cover(Image.open(R / "src/ee_before.jpg").convert("RGB"), W, H)
+    card = cover(Image.open(R / "src/ee0fa358/before.jpg").convert("RGB"), W, H)
     sc = Image.new("L", (1, H), 0)
     for y in range(H):
         t = max(0.0, (y - H * 0.5) / (H * 0.5)); sc.putpixel((0, y), int(190 * (t ** 1.4)))
@@ -81,7 +81,7 @@ def vid_seg(vid, dur, out):
 def main():
     tb = before_card()
     segs = [(TMP / "s1.mp4", lambda o: img_seg(tb, DUR["s1"], o)),
-            (TMP / "s2.mp4", lambda o: vid_seg(OUT / "ee_veo_9x16.mp4", DUR["s2"], o)),
+            (TMP / "s2.mp4", lambda o: vid_seg(WORK / "ee_veo_9x16.mp4", DUR["s2"], o)),
             (TMP / "s3.mp4", lambda o: img_seg(OUT / "ee_shop_9x16.png", DUR["s3"], o)),
             (TMP / "s4.mp4", lambda o: img_seg(OUT / "ee_hero_9x16.png", DUR["s4"], o))]
     for p, fn in segs:

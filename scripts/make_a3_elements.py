@@ -6,9 +6,9 @@ import httpx
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"
-prods = json.loads((R / "src2/products.json").read_text())
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True)
+prods = json.loads((R / "src/a3cdba11/products.json").read_text())
 total = sum(p["price_minor"] for p in prods) / 100
 W, H = 1080, 1920
 WHITE = (255, 255, 255)
@@ -40,7 +40,7 @@ def short(name):
 
 # 1) HOOK card — before room + punchy caption
 def hook():
-    card = cover(Image.open(R / "src2/before.jpg").convert("RGB"), W, H)
+    card = cover(Image.open(R / "src/a3cdba11/before.jpg").convert("RGB"), W, H)
     sc = Image.new("L", (1, H), 0)
     for y in range(H):
         a = 150
@@ -54,7 +54,7 @@ def hook():
     d.text((60, 158), "Dormitorul tău arată", font=B.font("serif", 70), fill=B.WHITE)
     d.text((60, 238), "așa de banal?", font=B.font("serif", 70), fill=B.WHITE)
     d.text((60, H - 180), "Stai să vezi.", font=B.font("sans", 40), fill=B.WHITE)
-    card.save(OUT / "a3_hook.png"); print("hook")
+    card.save(WORK / "a3_hook.png"); print("hook")
 
 
 def not_blank(im):
@@ -98,7 +98,7 @@ def product_cards():
         B.kicker(d, (60, by), "PRODUS REAL", size=26)
         d.text((60, by + 42), short(p["name"]), font=B.font("serif", 66), fill=B.HEADING)
         d.text((60, by + 138), lei(p["price_minor"]), font=B.font("bold", 64), fill=B.ACCENT)
-        card.save(OUT / f"a3_p{i}.png")
+        card.save(WORK / f"a3_p{i}.png")
         pick.append(p)
     print("product cards:", len(pick))
     return len(pick)
@@ -107,7 +107,7 @@ def product_cards():
 # 3) USP summary (9:16)
 def usp():
     card = Image.new("RGB", (W, H), B.BG)
-    card.paste(cover(Image.open(R / "src2/after.png").convert("RGB"), W, 1180), (0, 0))
+    card.paste(cover(Image.open(R / "src/a3cdba11/after.png").convert("RGB"), W, 1180), (0, 0))
     d = ImageDraw.Draw(card)
     y = 1180 + 70
     B.kicker(d, (60, y))
@@ -121,7 +121,7 @@ def usp():
 
 # 4) CTA (9:16) — after full-bleed
 def cta():
-    card = cover(Image.open(R / "src2/after.png").convert("RGB"), W, H)
+    card = cover(Image.open(R / "src/a3cdba11/after.png").convert("RGB"), W, H)
     sc = Image.new("L", (1, H), 0)
     for yy in range(H):
         t = max(0.0, (yy - H * 0.5) / (H * 0.5)); sc.putpixel((0, yy), int(195 * (t ** 1.35)))
@@ -131,7 +131,7 @@ def cta():
     d.line([(pad, H - pad - 204), (pad + 74, H - pad - 204)], fill=B.WHITE, width=3)
     d.text((pad, H - pad - 174), "Încarcă o poză.", font=B.font("serif", 82), fill=B.WHITE)
     d.text((pad, H - pad - 86), "Prima ta cameră e gratis · vyka.ro", font=B.font("sans", 33), fill=B.WHITE)
-    card.save(OUT / "a3_cta.png"); print("cta")
+    card.save(WORK / "a3_cta.png"); print("cta")
 
 
 hook(); n = product_cards(); usp(); cta()

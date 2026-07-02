@@ -6,8 +6,8 @@ import imageio_ffmpeg
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"; UI = R / "ui"; TMP = R / "_phoneseq"
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True); UI = R / "ui"; TMP = R / "_phoneseq"
 if TMP.exists(): shutil.rmtree(TMP)
 TMP.mkdir()
 FF = imageio_ffmpeg.get_ffmpeg_exe()
@@ -52,7 +52,7 @@ def result_screen():
     d = ImageDraw.Draw(s)
     d.text((28, 30), " ".join("VYKA"), font=B.font("sans", 18), fill=B.TEXT_MUTED)
     d.text((28, 58), "Designul tău", font=B.font("serif", 40), fill=B.HEADING)
-    img = cover(Image.open(R / "src2/after.png").convert("RGB"), SW - 40, 620)
+    img = cover(Image.open(R / "src/a3cdba11/after.png").convert("RGB"), SW - 40, 620)
     s.paste(img, (20, 130))
     d.text((28, 770), "14 produse · 16.135 lei", font=B.font("bold", 26), fill=B.HEADING)
     d.text((28, 808), "din magazine disponibile în România", font=B.font("sans", 19), fill=B.TEXT_MUTED)
@@ -100,7 +100,7 @@ ph_step1 = phone(screen("vyka_step1_filled.png"))
 ph_step2 = phone(screen("vyka_step2_style.png"))
 ph_step3 = phone(screen("vyka_step3_palette.png"))
 ph_result = phone(screen("vyka_result_clean.png"))
-before_full = cover(Image.open(R / "src2/before.jpg").convert("RGB"), W, H)
+before_full = cover(Image.open(R / "src/a3cdba11/before.jpg").convert("RGB"), W, H)
 
 # A) snap the old room
 for k in range(30):
@@ -136,7 +136,7 @@ for k in range(22):
     place_phone(im, ph_result, scale=1.0 + 1.25 * t)
     save(im)
 
-out = OUT / "a3v3_phone.mp4"
+out = WORK / "a3v3_phone.mp4"
 subprocess.run([FF, "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", str(TMP / "f%04d.png"),
                 "-vf", "format=yuv420p", "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast",
                 "-crf", "21", str(out)], check=True)

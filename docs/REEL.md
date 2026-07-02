@@ -7,8 +7,8 @@ final stitch, voice, music, captions. Target: **captivating, ≤18s, hook in 1s.
 ## Ingredients (all in this repo)
 | Asset | File | Role |
 |---|---|---|
-| Before (still) | `src/ee_before.jpg` | opening — the dated room |
-| After (video) | `out/ee_veo_9x16.mp4` | Veo push-in payoff (6s, **mute its audio**) |
+| Before (still) | `src/ee0fa358/before.jpg` | opening — the dated room |
+| After (video) | `out/work/ee_veo_9x16.mp4` | Veo push-in payoff (6s, **mute its audio**) |
 | Shoppable card | `out/ee_shop_9x16.png` | USP beat — real products + prices |
 | CTA card | `out/ee_hero_9x16.png` | closing call-to-action |
 | (backup) before/after | `out/ee_ba_9x16.png` | alt if you want a split instead of a cut |

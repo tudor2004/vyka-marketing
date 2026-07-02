@@ -5,8 +5,8 @@ import pathlib
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True)
 W, H = 540, 960          # half-res to stay light
 FPS = 12
 WHITE = B.WHITE
@@ -20,8 +20,8 @@ def cover(path, w, h):
     return im.crop(((nw - w) // 2, (nh - h) // 2, (nw - w) // 2 + w, (nh - h) // 2 + h))
 
 
-before = cover(R / "src/ee_before.jpg", W, H)
-after = cover(R / "src/ee_after.png", W, H)
+before = cover(R / "src/ee0fa358/before.jpg", W, H)
+after = cover(R / "src/ee0fa358/after.png", W, H)
 
 scrim = Image.new("L", (1, H), 0)
 for y in range(H):
@@ -77,8 +77,8 @@ for _ in range(int(FPS * 1.8)):      # hold after + band
 frames[0].save(OUT / "ee_reveal.gif", save_all=True, append_images=frames[1:],
                duration=int(1000 / FPS), loop=0, optimize=True)
 # key stills for review
-frame(0.0, False).save(OUT / "kf_before.png")
-frame(0.5, False).save(OUT / "kf_wipe.png")
-frame(1.0, True).save(OUT / "kf_after.png")
+frame(0.0, False).save(WORK / "kf_before.png")
+frame(0.5, False).save(WORK / "kf_wipe.png")
+frame(1.0, True).save(WORK / "kf_after.png")
 sz = (OUT / "ee_reveal.gif").stat().st_size // 1024
 print(f"wrote ee_reveal.gif {len(frames)} frames {W}x{H} {sz}KB + 3 key stills")

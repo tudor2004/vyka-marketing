@@ -4,8 +4,8 @@ import pathlib
 from PIL import Image, ImageDraw
 import brand as B
 
-R = pathlib.Path(__file__).parent
-OUT = R / "out"; UI = R / "ui"
+R = pathlib.Path(__file__).resolve().parent.parent
+OUT = R / "out"; WORK = R / "out/work"; WORK.mkdir(parents=True, exist_ok=True); UI = R / "ui"
 W, H = 1080, 1920
 
 
@@ -45,12 +45,12 @@ def phone(screen_path):
 
 
 # HOOK — dated room + soft serif caption
-hook = grad(cover(Image.open(R / "src/ee_before.jpg").convert("RGB"), W, H), bottom=True, strength=175)
+hook = grad(cover(Image.open(R / "src/ee0fa358/before.jpg").convert("RGB"), W, H), bottom=True, strength=175)
 d = ImageDraw.Draw(hook)
 B.kicker(d, (60, H - 360), fill=B.WHITE, size=26)
 d.text((60, H - 320), "Ai o cameră", font=B.font("serif", 78), fill=B.WHITE)
 d.text((60, H - 232), "pe care o tot amâni.", font=B.font("serif", 78), fill=B.WHITE)
-hook.save(OUT / "c_hook.png"); print("c_hook")
+hook.save(WORK / "c_hook.png"); print("c_hook")
 
 # PHONE with vyka.ro (the website beat)
 card = Image.new("RGB", (W, H), B.BG)
@@ -61,12 +61,12 @@ sub = "Totul începe cu o poză, pe"
 d.text(((W - d.textlength(sub, font=B.font("sans", 30))) // 2, H - 250), sub, font=B.font("sans", 30), fill=B.TEXT_MUTED)
 wm = "vyka.ro"
 d.text(((W - d.textlength(wm, font=B.font("serif", 56))) // 2, H - 205), wm, font=B.font("serif", 56), fill=B.HEADING)
-card.save(OUT / "c_phone.png"); print("c_phone")
+card.save(WORK / "c_phone.png"); print("c_phone")
 
 # CTA — after + soft close
-cta = grad(cover(Image.open(R / "src/ee_after.png").convert("RGB"), W, H), bottom=True, strength=195)
+cta = grad(cover(Image.open(R / "src/ee0fa358/after.png").convert("RGB"), W, H), bottom=True, strength=195)
 d = ImageDraw.Draw(cta)
 B.kicker(d, (60, H - 300), fill=B.WHITE, size=26)
 d.text((60, H - 262), "Camera ta te așteaptă.", font=B.font("serif", 70), fill=B.WHITE)
 d.text((60, H - 150), "Prima e gratis · vyka.ro", font=B.font("sans", 33), fill=B.WHITE)
-cta.save(OUT / "c_cta.png"); print("c_cta")
+cta.save(WORK / "c_cta.png"); print("c_cta")
